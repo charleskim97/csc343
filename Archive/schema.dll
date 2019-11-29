@@ -8,8 +8,19 @@ CREATE TABLE Property (
 	property_id integer PRIMARY KEY,
 	num_bed integer NOT NULL,
 	num_bath integer NOT NULL,
-	capacity integer NOT NULL CHECK (capacity >= num_bed),
-	address varchar(120) NOT NULL,	
+	capacity integer NOT NULL,
+	address varchar(120) NOT NULL,
+	city varchar(50),		--not sure why this is here
+	city_prop BOOLEAN default false,
+	water_prop BOOLEAN default false,
+	walk integer,
+	transit varchar(6),
+	beach BOOLEAN default false,
+	lake BOOLEAN default false,
+	pool BOOLEAN default false,
+	beachl BOOLEAN default false,
+	lakel BOOLEAN default false,
+	pooll BOOLEAN default false,
 	hottub BOOLEAN default false,
 	sauna BOOLEAN default false,
 	laundry BOOLEAN default false,
@@ -17,41 +28,19 @@ CREATE TABLE Property (
 	breakfast BOOLEAN default false,
 	concierge BOOLEAN default false);
 
--- City property data
-
-CREATE TABLE City(
-	property_id integer REFERENCES Property(property_id),
-	walk integer NOT NULL,
-	transit varchar(6) NOT NULL
-	);
-
--- Water property data
-CREATE TABLE Water(
-	property_id integer REFERENCES Property(property_id),
-	beach BOOLEAN default false,
-	lake BOOLEAN default false,
-	pool BOOLEAN default false,
-	beachl BOOLEAN default false,
-	lakel BOOLEAN default false,
-	pooll BOOLEAN default false
-	);
-
-
 -- A guest
 CREATE TABLE Guest(
-	guest_id SERIAL PRIMARY KEY,
-	name varchar(80) NOT NULL,
+	guest_id INT PRIMARY KEY, --not a primary key according to piazza
+--https://piazza.com/class/k0cnia4anf0sl?cid=558
 	dob DATE NOT NULL,
 	host INT NOT NULL,
 	name varchar(50) NOT NULL,
 	address varchar(50) NOT NULL
 	);
 
--- Host Information
-CREATE TABLE Host(
+-- Credit Card Information
+CREATE TABLE Credit(
 	host_id INT PRIMARY KEY REFERENCES Guest(guest_id),
-	host_name varchar(80) NOT NULL,
-	host_email varchar(80) NOT NULL,
 	creditcard INT NOT NULL
 	);
 	
@@ -62,25 +51,3 @@ CREATE TABLE Rent(
 	host_id INT NOT NULL REFERENCES Guest(guest_id),
 	price DECIMAL(19,4)
 	);
-
--- Property Ratings
-CREATE TABLE Property_Rating(
-	rating_id integer SERIAL PRIMARY KEY,
-	property_id integer REFERENCES Property(property_id),
-	guest_id integer REFERENCES Guest(guest_id),
-	guest_name varchar(80) REFERENCES Guest(name),
-	rating INTEGER NOT NULL
-	);
-
--- Host Ratings
-CREATE TABLE Host_Rating(
-	rating_id integer SERIAL PRIMARY KEY,
-	host_id integer REFERENCES Host(host_id),
-	guest_id integer REFERENCES Guest(guest_id),
-	rating INTEGER NOT NULL
-	);
-	
-
-
-
-
