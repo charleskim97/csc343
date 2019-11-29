@@ -10,11 +10,11 @@ CREATE TABLE Property (
 	num_bath integer NOT NULL,
 	capacity integer NOT NULL,
 	address varchar(120) NOT NULL,
-	city varchar(50) NOT NULL,
+	city varchar(50),		--not sure why this is here
 	city_prop BOOLEAN default false,
 	water_prop BOOLEAN default false,
-	walk integer NOT NULL,
-	transit varchar(6) NOT NULL,
+	walk integer,
+	transit varchar(6),
 	beach BOOLEAN default false,
 	lake BOOLEAN default false,
 	pool BOOLEAN default false,
@@ -30,7 +30,8 @@ CREATE TABLE Property (
 
 -- A guest
 CREATE TABLE Guest(
-	guest_id INT PRIMARY KEY,
+	guest_id INT PRIMARY KEY, --not a primary key according to piazza
+--https://piazza.com/class/k0cnia4anf0sl?cid=558
 	dob DATE NOT NULL,
 	host INT NOT NULL,
 	name varchar(50) NOT NULL,
