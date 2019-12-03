@@ -1,6 +1,6 @@
 SET search_path TO vacationschema, public;
 INSERT INTO Host(host_id, host_email)
-VALUES(1, 'luke@gmail.com'), (2, 'leia@gmail.com'), (3, 'han@gmail.com') ;
+VALUES(1, 'luke@gmail.com'), (2, 'leia@gmail.com'), (3, 'han@gmail.com');
 
 
 --Insert into Property and Water
@@ -66,7 +66,8 @@ VALUES
 (11, 'Chewbacca', 6, 5),
 (12, 'Leia, Princess', 2, 5);
 
-INSERT INTO Renter(checkin_id, rental_code, dob, address, creditcard, rental_date)
+INSERT INTO Renter(checkin_id, rental_code, dob, address, creditcard, 
+	rental_date)
 VALUES
 (1, 1, '1985-12-06','Death Star', 3466704824219330, '2019-01-05'),
 (3, 2, '1001-10-05','Alderaan', 6011253896008199, '2019-01-12'),
