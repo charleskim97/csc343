@@ -19,7 +19,6 @@ SELECT property_id, '*' AS star FROM prices where range = (SELECT MAX(range) FRO
 
 CREATE VIEW COMBINED as
 select prices.property_id, highest_price, lowest_price, range, star from prices left join star on prices.property_id = star.property_id;
-select * from combined;
 
 INSERT INTO q5
 select * from combined;
