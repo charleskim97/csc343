@@ -30,7 +30,6 @@ select rental_code, count(guest_id) -1 as num_guests from checkin GROUP BY renta
 
 CREATE VIEW rental_data as
 select guest_count.rental_code, property_id, num_guests FROM guest_count inner join rental on guest_count.rental_code = rental.rental_code;
-select * from rental_data;
 
 CREATE VIEW other as
 select property_id from property EXCEPT (select property_id from water) EXCEPT (select property_id from city);
