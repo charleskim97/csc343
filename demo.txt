@@ -133,13 +133,6 @@ DROP VIEW
 CREATE VIEW
 CREATE VIEW
 CREATE VIEW
- property_id | highest_price | lowest_price |  range   | star 
--------------+---------------+--------------+----------+------
-           3 |      750.0000 |     750.0000 |   0.0000 | 
-           5 |     1220.0000 |    1000.0000 | 220.0000 | *
-           2 |      600.0000 |     580.0000 |  20.0000 | 
-(3 rows)
-
 INSERT 0 3
  property_id | highest_price | lowest_price |  range   | star 
 -------------+---------------+--------------+----------+------
