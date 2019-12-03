@@ -78,7 +78,8 @@ CREATE TABLE Renter(
 	dob DATE NOT NULL,
 	address varchar(50) NOT NULL,
 	creditcard varchar(50) NOT NULL,
-	rental_date DATE REFERENCES Rent(date) CHECK DATEDIFF(year, rental_date, dob) > 18
+	rental_date DATE NOT NULL,
+	CHECK ((DATE_PART('year',rental_date) - DATE_PART('year', dob)) >= 18)
 	);
 
 -- Contains property ratings
