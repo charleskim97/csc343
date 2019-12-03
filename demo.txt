@@ -104,15 +104,6 @@ DROP VIEW
 DROP VIEW
 CREATE VIEW
 CREATE VIEW
- rental_code | property_id | num_guests 
--------------+-------------+------------
-           1 |           2 |          1
-           2 |           3 |          2
-           3 |           2 |          1
-           4 |           5 |          2
-           5 |           5 |          1
-(5 rows)
-
 CREATE VIEW
 CREATE VIEW
 CREATE VIEW
