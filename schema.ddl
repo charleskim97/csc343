@@ -2,10 +2,6 @@ DROP SCHEMA IF EXISTS vacationschema cascade;
 CREATE SCHEMA vacationschema;
 SET search_path TO vacationschema, public;
 
---Need these constraints
---One rental can have only one host
---
-
 --Additional Notes
 --Read this for q2
 	--https://piazza.com/class/k0cnia4anf0sl?cid=580
