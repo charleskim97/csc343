@@ -1,0 +1,249 @@
+DROP SCHEMA
+CREATE SCHEMA
+SET
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+INSERT 0 3
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 5
+INSERT 0 6
+INSERT 0 12
+INSERT 0 5
+INSERT 0 9
+INSERT 0 5
+INSERT 0 3
+ host_id |   host_email   
+---------+----------------
+       1 | luke@gmail.com
+       2 | leia@gmail.com
+       3 | han@gmail.com
+(3 rows)
+
+ property_id | num_bed | num_bath | capacity | address  | hottub | sauna | laundry | cleaning | breakfast | concierge | host_id 
+-------------+---------+----------+----------+----------+--------+-------+---------+----------+-----------+-----------+---------
+           1 |       3 |        1 |        6 | Tatooine | t      | f     | f       | t        | f         | f         |       1
+           2 |       1 |        1 |        2 | Alderaan | t      | t     | f       | t        | f         | f         |       2
+           3 |       2 |        1 |        3 | Corellia | f      | f     | f       | f        | t         | t         |       3
+           4 |       2 |        1 |        2 | Verona   | f      | f     | t       | f        | f         | f         |       2
+           5 |       2 |        2 |        4 | Florence | t      | f     | f       | f        | f         | f         |       3
+           6 |       1 |        1 |        2 | Toronto  | t      | t     | t       | t        | f         | t         |       1
+(6 rows)
+
+ property_id | beach | lake | pool | beachl | lakel | pooll 
+-------------+-------+------+------+--------+-------+-------
+           2 | f     | t    | f    | f      | f     | f
+(1 row)
+
+ property_id | walk | transit 
+-------------+------+---------
+           3 |   20 | bus
+(1 row)
+
+ rental_code | property_id 
+-------------+-------------
+           1 |           2
+           2 |           3
+           3 |           2
+           4 |           5
+           5 |           5
+(5 rows)
+
+ rental_id |    date    | rental_code |   price   
+-----------+------------+-------------+-----------
+         1 | 2019-01-05 |           1 |  580.0000
+         2 | 2019-01-12 |           2 |  750.0000
+         3 | 2019-01-19 |           2 |  750.0000
+         4 | 2019-01-12 |           3 |  600.0000
+         5 | 2019-01-05 |           4 | 1000.0000
+         6 | 2019-01-12 |           5 | 1220.0000
+(6 rows)
+
+ checkin_id |      name      | guest_id | rental_code 
+------------+----------------+----------+-------------
+          1 | Darth Vader    |        1 |           1
+          2 | Leia, Princess |        2 |           1
+          3 | Leia, Princess |        2 |           2
+          4 | Romeo Montague |        3 |           2
+          5 | Juliet Capulet |        4 |           2
+          6 | Romeo Montague |        5 |           3
+          7 | Juliet Capulet |        4 |           3
+          8 | Mercutio       |        6 |           4
+          9 | Romeo Montague |        5 |           4
+         10 | Darth Vader    |        1 |           4
+         11 | Chewbacca      |        7 |           5
+         12 | Leia, Princess |        2 |           5
+(12 rows)
+
+ checkin_id | rental_code |    dob     |  address   |    creditcard    
+------------+-------------+------------+------------+------------------
+          1 |           1 | 1985-12-06 | Death Star | 3466704824219330
+          3 |           2 | 1001-10-05 | Alderaan   | 6011253896008199
+          6 |           3 | 1988-05-11 | Verona     | 5446447451075463
+          8 |           4 | 1988-03-03 | Verona     | 4666153163329984
+         11 |           5 | 1998-09-15 | Kashyyyk   | 6011624297465933
+(5 rows)
+
+ rating_id | property_id | checkin_id | rating 
+-----------+-------------+------------+--------
+         1 |           2 |          2 |      5
+         2 |           2 |          1 |      2
+         3 |           3 |          4 |      5
+         4 |           3 |          5 |      5
+         5 |           3 |          3 |      1
+         6 |           2 |          7 |      5
+         7 |           5 |          8 |      1
+         8 |           5 |          9 |      1
+         9 |           5 |         11 |      3
+(9 rows)
+
+ host_rating_id | host_id | checkin_id | rating 
+----------------+---------+------------+--------
+              1 |       2 |          1 |      2
+              2 |       3 |          3 |      5
+              3 |       2 |          6 |      3
+              4 |       3 |          8 |      4
+              5 |       3 |         11 |      4
+(5 rows)
+
+ rating_id |                          comm                          
+-----------+--------------------------------------------------------
+         1 | Looks like she hides rebel scum here.
+         3 | A bit scruffy, could do with more regular housekeeping
+         9 | Fantastic, arggg
+(3 rows)
+
+SET
+DROP TABLE
+DROP VIEW
+CREATE TABLE
+CREATE VIEW
+ hottub | sauna | laundry | cleaning | breakfast | concierge 
+--------+-------+---------+----------+-----------+-----------
+      4 |     2 |       2 |        3 |         1 |         2
+(1 row)
+
+SET
+DROP TABLE
+CREATE TABLE
+DROP VIEW
+DROP VIEW
+DROP VIEW
+DROP VIEW
+DROP VIEW
+DROP VIEW
+DROP VIEW
+DROP VIEW
+DROP VIEW
+DROP VIEW
+CREATE VIEW
+CREATE VIEW
+CREATE VIEW
+CREATE VIEW
+CREATE VIEW
+CREATE VIEW
+CREATE VIEW
+CREATE VIEW
+CREATE VIEW
+INSERT 0 1
+ avg_rating_at_capacity | num_properties_at_capacity | avg_rating_below_capacity | num_properties_below_capacity 
+------------------------+----------------------------+---------------------------+-------------------------------
+       3.83333333333333 |                          3 |          1.66666666666667 |                             2
+(1 row)
+
+SET
+DROP TABLE
+CREATE TABLE
+DROP VIEW
+DROP VIEW
+DROP VIEW
+DROP VIEW
+DROP VIEW
+DROP VIEW
+DROP VIEW
+DROP VIEW
+CREATE VIEW
+CREATE VIEW
+CREATE VIEW
+CREATE VIEW
+CREATE VIEW
+CREATE VIEW
+CREATE VIEW
+CREATE VIEW
+INSERT 0 1
+ host_id |     email     | avg_host_rating  | most_expensive 
+---------+---------------+------------------+----------------
+       3 | han@gmail.com | 4.33333333333333 |      1220.0000
+(1 row)
+
+SET
+DROP TABLE
+CREATE TABLE
+DROP VIEW
+DROP VIEW
+DROP VIEW
+DROP VIEW
+DROP VIEW
+DROP VIEW
+DROP VIEW
+CREATE VIEW
+CREATE VIEW
+ rental_code | property_id | num_guests 
+-------------+-------------+------------
+           1 |           2 |          1
+           2 |           3 |          2
+           3 |           2 |          1
+           4 |           5 |          2
+           5 |           5 |          1
+(5 rows)
+
+CREATE VIEW
+CREATE VIEW
+CREATE VIEW
+CREATE VIEW
+CREATE VIEW
+INSERT 0 1
+ city_avg_guest | water_avg_guest | other_avg_guest 
+----------------+-----------------+-----------------
+              2 |               1 |             1.5
+(1 row)
+
+SET
+DROP TABLE
+CREATE TABLE
+DROP VIEW
+DROP VIEW
+DROP VIEW
+CREATE VIEW
+CREATE VIEW
+CREATE VIEW
+ property_id | highest_price | lowest_price |  range   | star 
+-------------+---------------+--------------+----------+------
+           3 |      750.0000 |     750.0000 |   0.0000 | 
+           5 |     1220.0000 |    1000.0000 | 220.0000 | *
+           2 |      600.0000 |     580.0000 |  20.0000 | 
+(3 rows)
+
+INSERT 0 3
+ property_id | highest_price | lowest_price |  range   | star 
+-------------+---------------+--------------+----------+------
+           3 |      750.0000 |     750.0000 |   0.0000 | 
+           5 |     1220.0000 |    1000.0000 | 220.0000 | *
+           2 |      600.0000 |     580.0000 |  20.0000 | 
+(3 rows)
+
