@@ -56,23 +56,23 @@ VALUES
 (4, 'Romeo Montague', 3, 2),
 (5, 'Juliet Capulet', 4, 2),
 -- Rental 3
-(6, 'Romeo Montague', 5, 3),
+(6, 'Romeo Montague', 3, 3),
 (7, 'Juliet Capulet', 4, 3),
 -- Rental 4
-(8, 'Mercutio', 6, 4),
-(9, 'Romeo Montague', 5, 4),
+(8, 'Mercutio', 5, 4),
+(9, 'Romeo Montague', 3, 4),
 (10, 'Darth Vader', 1, 4),
 -- Rental 5
-(11, 'Chewbacca', 7, 5),
+(11, 'Chewbacca', 6, 5),
 (12, 'Leia, Princess', 2, 5);
 
 INSERT INTO Renter(checkin_id, rental_code, dob, address, creditcard)
 VALUES
-(1, 1, '1985-12-06','Death Star', 3466704824219330),
-(3, 2, '1001-10-05','Alderaan', 6011253896008199),
-(6, 3, '1988-05-11','Verona', 5446447451075463),
-(8, 4, '1988-03-03','Verona', 4666153163329984),
-(11, 5, '1998-09-15','Kashyyyk', 6011624297465933);
+(1, 1, '1985-12-06','Death Star', 3466704824219330, '2019-01-05'),
+(3, 2, '1001-10-05','Alderaan', 6011253896008199, '2019-01-12'),
+(6, 3, '1988-05-11','Verona', 5446447451075463, '2019-01-12'), 
+(8, 4, '1988-03-03','Verona', 4666153163329984, '2019-01-05'),
+(11, 5, '1998-09-15','Kashyyyk', 6011624297465933, '2019-01-12');
 
 INSERT INTO Property_Rating(rating_id, property_id, checkin_id, rating)
 VALUES
@@ -104,15 +104,3 @@ VALUES
 (1,'Looks like she hides rebel scum here.'),
 (3,'A bit scruffy, could do with more regular housekeeping'),
 (9,'Fantastic, arggg');
-
-select * from Host;
-select * from Property;
-select * from Water;
-select * from City;
-select * from Rental;
-select * from Rent;
-select * from Checkin;
-select * from Renter;
-select * from Property_Rating;
-select * from Host_Rating;
-select * from Comments;

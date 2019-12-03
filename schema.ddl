@@ -2,22 +2,13 @@ DROP SCHEMA IF EXISTS vacationschema cascade;
 CREATE SCHEMA vacationschema;
 SET search_path TO vacationschema, public;
 
---Additional Notes
---Read this for q2
-	--https://piazza.com/class/k0cnia4anf0sl?cid=580
---for q4
-	--https://piazza.com/class/k0cnia4anf0sl?cid=570
-	--https://piazza.com/class/k0cnia4anf0sl?cid=568
---for q5
-	--https://piazza.com/class/k0cnia4anf0sl?cid=577
-
-
--- A property
+-- Contains unique host ID's and their corresponding email
 CREATE TABLE Host (
 	host_id SERIAL PRIMARY KEY,
 	host_email varchar(80) NOT NULL
 	);
 
+-- Contains general property information
 CREATE TABLE Property (
 	property_id integer PRIMARY KEY,
 	num_bed integer NOT NULL,
@@ -34,18 +25,17 @@ CREATE TABLE Property (
 	);
 
 
--- City property data
+-- Contains data for City properties
 
 CREATE TABLE City(
-	property_id integer REFERENCES Property(property_id),
+	property_id integer REFERENCES Property(property_id) PRIMARY KEY,
 	walk integer NOT NULL,
-	transit varchar(6) NOT NULL		--don't forget we have to manually input "none"
-						--refer to https://piazza.com/class/k0cnia4anf0sl?cid=573
+	transit varchar(6) NOT NULL
 	);
 
--- Water property data
+-- Contains data for Water properties
 CREATE TABLE Water(
-	property_id integer REFERENCES Property(property_id),
+	property_id integer REFERENCES Property(property_id) PRIMARY KEY,
 	beach BOOLEAN default false,
 	lake BOOLEAN default false,
 	pool BOOLEAN default false,
@@ -54,15 +44,15 @@ CREATE TABLE Water(
 	pooll BOOLEAN default false
 	);
 
---rental code lmao
+-- Contains the property_id for each rental instance
 CREATE TABLE Rental(
 	rental_code INT PRIMARY KEY,
 	property_id INT REFERENCES Property(property_id)
 	);
 
 	
--- Rent information on a weekly basis
--- Each rental determined by rental CODE
+-- Rent information on a weekly basis (rental_id)
+-- Each rental instance determined by rental_code, not rental_id
 -- Weekly rents determined by rental ID
 CREATE TABLE Rent(
 	rental_id INT PRIMARY KEY,
@@ -73,7 +63,7 @@ CREATE TABLE Rent(
 
 
 
--- A guest
+-- Contains check-in information of guest and rental instance
 CREATE TABLE Checkin(
 	checkin_id SERIAL PRIMARY KEY,
 	name varchar(80) NOT NULL,
@@ -81,16 +71,17 @@ CREATE TABLE Checkin(
 	rental_code INT NOT NULL REFERENCES Rental(rental_code)	
 	);
 
--- Renter Information
+-- Contains renter information of each rental instance
 CREATE TABLE Renter(
 	checkin_id INT PRIMARY KEY REFERENCES Checkin(checkin_id),
-	rental_code INT NOT NULL REFERENCES Rental(rental_code),
+	rental_code INT NOT NULL REFERENCES Rental(rental_code) UNIQUE,
 	dob DATE NOT NULL,
 	address varchar(50) NOT NULL,
-	creditcard varchar(50) NOT NULL
+	creditcard varchar(50) NOT NULL,
+	rental_date DATE REFERENCES Rent(date) CHECK DATEDIFF(year, rental_date, dob) > 18
 	);
 
--- Property Ratings
+-- Contains property ratings
 CREATE TABLE Property_Rating(
 	rating_id SERIAL PRIMARY KEY,
 	property_id integer REFERENCES Property(property_id),
@@ -98,7 +89,7 @@ CREATE TABLE Property_Rating(
 	rating INTEGER NOT NULL
 	);
 
--- Host Ratings
+-- Contains host ratings
 CREATE TABLE Host_Rating(
 	host_rating_id SERIAL PRIMARY KEY,
 	host_id integer REFERENCES Host(host_id),
@@ -106,7 +97,7 @@ CREATE TABLE Host_Rating(
 	rating INTEGER NOT NULL
 	);
 
---Comments
+-- Contains comment ratings
 CREATE TABLE Comments(
 	rating_id INT PRIMARY KEY REFERENCES Property_Rating(rating_id),
 	comm VARCHAR(280) NOT NULL
