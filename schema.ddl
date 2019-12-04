@@ -1,7 +1,16 @@
--- What constraints from the domain could not be enforced, if any? The
--- constraint for keeping the number of guests under capacity would not be 
+-- 1. What constraints from the domain could not be enforced, if any? 
 
-DROP SCHEMA IF EXISTS vacationschema cascade; CREATE SCHEMA vacationschema;
+-- The constraint for keeping the number of guests under capacity
+-- would not be able to be enforced without either introducing 
+-- redundancy or an assertion.  
+
+-- 2. What constraints that could have been enforced were not
+-- enforced, if any? Why not?
+
+-- The constraint for the 
+
+DROP SCHEMA IF EXISTS vacationschema cascade; 
+CREATE SCHEMA vacationschema;
 SET search_path TO vacationschema, public;
 
 -- Contains unique host ID's and their corresponding email 
@@ -62,15 +71,19 @@ CREATE TABLE Rent(
 );
 
 
-
+CREATE TABLE Guest(
+	guest_id INT PRIMARY KEY,
+	name varchar(80) NOT NULL, 
+	address varchar(50) NOT NULL,
+	dob DATE NOT NULL
+);
 -- Contains check-in information of guest and rental instance 
 CREATE TABLE Checkin( 
-	checkin_id SERIAL PRIMARY KEY, 
-	name varchar(80) NOT NULL, 
-	guest_id INT NOT NULL, 
+	checkin_id SERIAL PRIMARY KEY, 	
+	guest_id INT NOT NULL REFERENCES Guest(guest_id), 	
 	rental_code INT NOT NULL REFERENCES Rental(rental_code));
 
--- Contains renter information of each rental instance 
+-- Contains renter information of each rental instance
 CREATE TABLE Renter(
 checkin_id INT PRIMARY KEY REFERENCES Checkin(checkin_id),
 rental_code INT NOT NULL REFERENCES Rental(rental_code) UNIQUE,
@@ -92,9 +105,9 @@ CREATE TABLE Host_Rating(
 	host_rating_id SERIAL PRIMARY KEY, 
 	host_id integer REFERENCES Host(host_id),
 	checkin_id integer REFERENCES Renter(checkin_id),
-	 rating INTEGER NOT NULL );
+	rating INTEGER NOT NULL );
 
 -- Contains comment ratings 
 CREATE TABLE Comments( 
 	rating_id INT PRIMARY KEY REFERENCES Property_Rating(rating_id),
-	 comm VARCHAR(280) NOT NULL );
+	comm VARCHAR(280) NOT NULL );

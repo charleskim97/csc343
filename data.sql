@@ -46,25 +46,39 @@ VALUES(1, '2019-01-05', 1, 580),
 (5, '2019-01-05', 4, 1000),
 (6, '2019-01-12', 5, 1220);
 
-INSERT INTO Checkin(checkin_id, name, guest_id, rental_code)
+INSERT INTO Guest(guest_id, name, address, dob)
+VALUES
+(1, 'Darth Vader', 'Death Star', '1985-12-06'),
+
+(2, 'Leia, Princess', 'Alderaan', '1001-10-05'),
+
+(3, 'Romeo Montague', 'Verona', '1988-05-11'),
+
+(4, 'Juliet Capulet', 'Verona', '1991-07-24'),
+
+(5, 'Mercutio', 'Verona', '1988-03-03'),
+
+(6, 'Chewbacca', 'Kashyyyk', '1998-09-15');
+
+INSERT INTO Checkin(checkin_id, guest_id, rental_code)
 VALUES
 -- Rental 1
-(1, 'Darth Vader', 1, 1),
-(2, 'Leia, Princess', 2, 1),
+(1, 1, 1),
+(2, 2, 1),
 -- Rental 2
-(3, 'Leia, Princess', 2, 2),
-(4, 'Romeo Montague', 3, 2),
-(5, 'Juliet Capulet', 4, 2),
+(3, 2, 2),
+(4, 3, 2),
+(5, 4, 2),
 -- Rental 3
-(6, 'Romeo Montague', 3, 3),
-(7, 'Juliet Capulet', 4, 3),
+(6, 3, 3),
+(7, 4, 3),
 -- Rental 4
-(8, 'Mercutio', 5, 4),
-(9, 'Romeo Montague', 3, 4),
-(10, 'Darth Vader', 1, 4),
+(8, 5, 4),
+(9, 3, 4),
+(10, 1, 4),
 -- Rental 5
-(11, 'Chewbacca', 6, 5),
-(12, 'Leia, Princess', 2, 5);
+(11, 6, 5),
+(12,  2, 5);
 
 INSERT INTO Renter(checkin_id, rental_code, dob, address, creditcard, 
 	rental_date)
