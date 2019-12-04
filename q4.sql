@@ -1,3 +1,4 @@
+-- Query 4
 --For each type (city property, water property, and other) report the average
 --number of extra guests (that is, not including the renter themself) for
 --properties of that type. Compute the average across all rentings of that

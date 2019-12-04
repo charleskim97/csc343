@@ -19,7 +19,7 @@ AS
          Max(price) - Min(price) AS Range 
   FROM   rent 
          INNER JOIN rental 
-                 ON rent.rental_code = rental.rental_code 
+                 ON rent.rental_code = rental.rental_code
   GROUP  BY property_id; 
 
 CREATE VIEW star 
@@ -39,7 +39,7 @@ AS
          star 
   FROM   prices 
          LEFT JOIN star 
-                ON prices.property_id = star.property_id; 
+                ON prices.property_id = star.property_id;
 
 INSERT INTO q5 
 SELECT * 

@@ -92,7 +92,8 @@ SELECT max_host_data.host_id,
        avg_host_rating,
        max_price
 FROM max_host_data
-INNER JOIN average_ratings ON max_host_data.host_id = average_ratings.host_id;
+INNER JOIN average_ratings 
+ON max_host_data.host_id = average_ratings.host_id;
 
 
 INSERT INTO q3

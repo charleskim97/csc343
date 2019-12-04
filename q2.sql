@@ -80,7 +80,7 @@ SELECT
               FROM   below_capacity_rating) AS avg_rating_below_capacity, 
        ( 
               SELECT Count(rental_code) 
-              FROM   below_capacity) AS num_below_capacity;INSERT INTO q2 
+              FROM   below_capacity) AS num_below_capacity;INSERT INTO q2
 SELECT * 
 FROM   query2;SELECT * 
 FROM   q2;
