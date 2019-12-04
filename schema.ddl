@@ -7,7 +7,12 @@
 -- 2. What constraints that could have been enforced were not
 -- enforced, if any? Why not?
 
--- The constraint for the 
+-- The constraint for hosts and properties being only available
+-- to be rated by corresponding guests was not enforced. This
+-- is because this implementing this constraint
+-- using solely check constraints would require a significant
+-- addition to the tables which costs a significant amount
+-- of space.
 
 DROP SCHEMA IF EXISTS vacationschema cascade; 
 CREATE SCHEMA vacationschema;
